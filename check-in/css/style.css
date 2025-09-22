@@ -1,0 +1,17 @@
+body{
+    background-color: lightgray;
+}
+h1{
+    margin:auto;
+    text-align: center;
+    padding: 20px;
+}
+img{
+    margin:auto;
+    display: block;
+    padding: 20px;
+    background-color: gray;
+    border: solid blue 5px;
+    width: 200px;
+    height: auto;
+}
