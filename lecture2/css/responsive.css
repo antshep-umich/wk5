@@ -1,0 +1,89 @@
+/* --- Base (Mobile First) --- */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.gallery img {
+  flex-shrink: 1;
+  flex-grow: 1;
+  flex-basis: 90%;  /* flex-basis practice */
+}
+
+/* STUDENT CODE STARTS HERE */
+@media all and (min-width: 768px){
+  .grid{
+    grid-template-columns: 45% 45%;
+    justify-items:center;
+  }
+  .grid > div:nth-child(3n){
+    grid-column: 1 / -1;
+    width:50%;
+  }
+  .grid > div:nth-child(even){
+    background-color: aqua;
+  }
+  .gallery{
+    justify-content: space-around;
+  }
+  .gallery img{
+    flex:1 1 30%;
+  }
+
+}
+
+@media all and (min-width: 1200px){
+  .grid{
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+  }
+  .grid > div:hover{
+    filter: drop-shadow(0 0 0.75rem rgb(0, 0, 0));
+  }
+  .gallery{
+    justify-content: space-between;
+  }
+  .gallery img{
+    flex: 1 1 200px;
+  }
+}
+
+@media print{
+  body{
+    background: white;
+    color: black;
+  }
+  .gallery{
+    display:none;
+  }
+  .grid{
+    grid-template-columns: 1fr;
+  }
+  .grid > div{
+    border: 2px solid black;
+    page-break-inside: avoid;
+  }
+}
+
+@media (prefers-color-scheme: dark){
+  body{
+    background-color: #111;
+    color: #eee
+  }
+  .grid > div{
+    background-color: #111;
+    border: 1px solid #EB5B00;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .grid > div:hover{
+    filter:none;
+  }
+}
